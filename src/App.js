@@ -13,16 +13,18 @@ function App() {
 
   useEffect(()=>{
     dispatch(fetchChuckJoke());
-  }, [])
+  })
 
 
   return (
     <div>
       <img src='https://nakedsecurity.sophos.com/wp-content/uploads/sites/2/2012/01/chuck-norris-thumb.jpg' alt='Chuck Norris' />
-      Chuck Norris is a BAMF
+      {/* Chuck Norris is a BAMF */}
       <ChuckIsAGod />
+      <button onClick = {() => dispatch(fetchChuckJoke())}>More Norris Goodness</button>
       {/* if it was an array {errors.length ? errors.map(err => <p>{err}</p>) : <></> } */}
       {errors ? <p>{errors}</p> : <></>}
+      
     </div>
   );
 }
