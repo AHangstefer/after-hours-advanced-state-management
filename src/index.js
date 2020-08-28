@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import chuckReducer from "./reducers/chuckReducer"
 
+
 const store = createStore(chuckReducer, applyMiddleware(thunk, logger))
 ;
 ReactDOM.render(

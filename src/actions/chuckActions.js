@@ -8,12 +8,14 @@ export const FETCH_CHUCKY_FAILURE = "FETCH_CHUCKY_FAILURE";
 export const fetchChuckJoke = () => dispatch => {
     dispatch({type: FETCH_CHUCKY_START});
     axios
-    .get(`http://api.icndb/jokes/random`)
+    .get(`http://api.icndb/jokes/jjjhg`)
     .then((res)=>{
-        console.log("You're getting the data!", res.data);
+        console.log("You're getting the data!", res.data.value.joke);
+        dispatch({type: FETCH_CHUCKY_SUCCESS, payload: res.data.value.joke});
 
     })
     .catch((err)=>{
-        console.log("oh shit! You've got an err", err)
+        console.log("oh shit! You've got an err", err);
+        dispatch({type: FETCH_CHUCKY_FAILURE, payload: err.message});
     })
 };
